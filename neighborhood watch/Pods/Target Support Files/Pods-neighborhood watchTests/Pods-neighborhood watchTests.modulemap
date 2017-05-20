@@ -1,0 +1,6 @@
+framework module Pods_neighborhood_watchTests {
+  umbrella header "Pods-neighborhood watchTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

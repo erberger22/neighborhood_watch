@@ -1,0 +1,6 @@
+framework module Pods_neighborhood_watch {
+  umbrella header "Pods-neighborhood watch-umbrella.h"
+
+  export *
+  module * { export * }
+}
