@@ -710,6 +710,7 @@
 				17CBE6121ED0F88A005F6940 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17CBE6131ED0F88A005F6940 /* Build configuration list for PBXNativeTarget "neighborhood watchTests" */ = {
 			isa = XCConfigurationList;
@@ -718,6 +719,7 @@
 				17CBE6151ED0F88A005F6940 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17CBE6161ED0F88A005F6940 /* Build configuration list for PBXNativeTarget "neighborhood watchUITests" */ = {
 			isa = XCConfigurationList;
@@ -726,6 +728,7 @@
 				17CBE6181ED0F88A005F6940 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
