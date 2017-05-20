@@ -6,8 +6,17 @@ target 'neighborhood watch' do
   use_frameworks!
 
   # Pods for neighborhood watch
-	pod 'Firebase/Core'
-	pod ‘Firebase/Database’
+      pod 'Firebase/AdMob'
+      pod 'Firebase/Analytics'
+      pod 'Firebase/AppIndexing'
+      pod 'Firebase/Auth'
+      pod 'Firebase/Crash'
+      pod 'Firebase/Database'
+      pod 'Firebase/DynamicLinks'
+      pod 'Firebase/Invites'
+      pod 'Firebase/Messaging'
+      pod 'Firebase/RemoteConfig'
+      pod 'Firebase/Storage'
 
   target 'neighborhood watchTests' do
     inherit! :search_paths
