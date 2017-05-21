@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ttT-n8-7Ye">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,38 +21,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zo2-Fn-3aF">
-                                <rect key="frame" x="112" y="602" width="133" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17D-5w-9uW">
+                                <rect key="frame" x="131" y="113" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Login to Add Pin">
-                                    <color key="titleColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ttT-n8-7Ye" kind="show" id="gi3-sb-pCX"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85.599999999999994" y="-123.68815592203899"/>
+            <point key="canvasLocation" x="-71.200000000000003" y="-142.57871064467767"/>
         </scene>
         <!--UserAuth-->
         <scene sceneID="dbx-kR-eyA">
             <objects>
-                <viewController title="UserAuth" id="ttT-n8-7Ye" customClass="UserAuthController" customModule="neighborhood_watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="UserAuth" id="ttT-n8-7Ye" customClass="SecondViewController" customModule="neighborhood_watch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E4z-u3-2NJ"/>
                         <viewControllerLayoutGuide type="bottom" id="dJq-W0-IWC"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nb6-nC-wpL" customClass="UserAuth">
+                    <view key="view" contentMode="scaleToFill" id="nb6-nC-wpL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyk-pa-iEs" customClass="UserAuth">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyk-pa-iEs">
                                 <rect key="frame" x="72" y="189" width="230" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -89,15 +85,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="Email" destination="zyk-pa-iEs" id="R61-CF-jWa"/>
                         <outlet property="actionButton" destination="O8c-fD-ghi" id="7NQ-F9-cN2"/>
-                        <outlet property="password" destination="bIy-Ii-QlH" id="HcY-4p-OCN"/>
+                        <outlet property="emailText" destination="zyk-pa-iEs" id="49L-jI-9st"/>
+                        <outlet property="passwordText" destination="bIy-Ii-QlH" id="u99-u3-N8W"/>
                         <outlet property="segmentControl" destination="KoJ-e9-SX1" id="HpK-ME-JCU"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="segue" id="BAa-Ju-JmB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uup-S5-s69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="832" y="-179"/>
+            <point key="canvasLocation" x="918" y="-317"/>
         </scene>
     </scenes>
 </document>
