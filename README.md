@@ -2,7 +2,7 @@
 
 ## Members
 * Fei Li: lifangfei
-* Harini : hariniGB
+* Harini Balakrishnan: hariniGB
 * Brian Wong: lil-boat
 * Eli Berger: erberger22
 
