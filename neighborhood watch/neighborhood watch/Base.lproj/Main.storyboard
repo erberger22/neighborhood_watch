@@ -93,6 +93,10 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMT-kn-LPj">
                                 <rect key="frame" x="16" y="94" width="343" height="216"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bEr-xO-9vZ" id="Nmp-ip-1lB"/>
+                                    <outlet property="delegate" destination="bEr-xO-9vZ" id="Raj-vR-bFx"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-UA-dKX">
                                 <rect key="frame" x="0.0" y="637" width="375" height="30"/>
@@ -121,6 +125,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="UMT-kn-LPj" secondAttribute="trailing" id="wHj-Yo-Y8G"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pickerView" destination="UMT-kn-LPj" id="HtR-JM-bva"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGy-Be-PYD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
