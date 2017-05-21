@@ -16,6 +16,11 @@
 		17CBE60C1ED0F88A005F6940 /* neighborhood_watchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE60B1ED0F88A005F6940 /* neighborhood_watchUITests.swift */; };
 		17CBE61A1ED0F8EC005F6940 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17CBE6191ED0F8EC005F6940 /* GoogleService-Info.plist */; };
 		17CBE6201ED128FB005F6940 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE61F1ED128FB005F6940 /* SecondViewController.swift */; };
+		664999F01ED20753002CBE72 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664999EF1ED20753002CBE72 /* CoreLocation.framework */; };
+		664999F31ED20AAF002CBE72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE5ED1ED0F889005F6940 /* ViewController.swift */; };
+		664999F41ED20AB0002CBE72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE5ED1ED0F889005F6940 /* ViewController.swift */; };
+		664999F81ED21400002CBE72 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664999F71ED21400002CBE72 /* Artwork.swift */; };
+		664999FA1ED2140B002CBE72 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664999F91ED2140B002CBE72 /* VCMapView.swift */; };
 		7F2F55AC0185180722777EE3 /* Pods_neighborhood_watchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286F1E9ED12F2B9E6EDC8F82 /* Pods_neighborhood_watchUITests.framework */; };
 		8B3B7BD238F8DC218F55E17B /* Pods_neighborhood_watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424C763B419712FCCEB6B32A /* Pods_neighborhood_watch.framework */; };
 		97F10FBE62841373ED77E226 /* Pods_neighborhood_watchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF1EFEFE807FA670B4D0F4A /* Pods_neighborhood_watchTests.framework */; };
@@ -58,6 +63,9 @@
 		424C763B419712FCCEB6B32A /* Pods_neighborhood_watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_neighborhood_watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E7DB6D7B4715EEE6DC0A578 /* Pods-neighborhood watchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neighborhood watchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-neighborhood watchUITests/Pods-neighborhood watchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5170BE15771C831BAC0AD2AD /* Pods-neighborhood watchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neighborhood watchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-neighborhood watchUITests/Pods-neighborhood watchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		664999EF1ED20753002CBE72 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		664999F71ED21400002CBE72 /* Artwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		664999F91ED2140B002CBE72 /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		686EFBEFB0381D963430DF94 /* Pods-neighborhood watchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neighborhood watchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-neighborhood watchTests/Pods-neighborhood watchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B45104F640D13BB2C013DA59 /* Pods-neighborhood watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neighborhood watch.release.xcconfig"; path = "Pods/Target Support Files/Pods-neighborhood watch/Pods-neighborhood watch.release.xcconfig"; sourceTree = "<group>"; };
 		DCF1EFEFE807FA670B4D0F4A /* Pods_neighborhood_watchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_neighborhood_watchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664999F01ED20753002CBE72 /* CoreLocation.framework in Frameworks */,
 				8B3B7BD238F8DC218F55E17B /* Pods_neighborhood_watch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,8 +127,10 @@
 		17CBE5EA1ED0F889005F6940 /* neighborhood watch */ = {
 			isa = PBXGroup;
 			children = (
+				664999F71ED21400002CBE72 /* Artwork.swift */,
 				17CBE5EB1ED0F889005F6940 /* AppDelegate.swift */,
 				17CBE5ED1ED0F889005F6940 /* ViewController.swift */,
+				664999F91ED2140B002CBE72 /* VCMapView.swift */,
 				17CBE61F1ED128FB005F6940 /* SecondViewController.swift */,
 				17CBE5EF1ED0F889005F6940 /* Main.storyboard */,
 				17CBE5F21ED0F889005F6940 /* Assets.xcassets */,
@@ -164,6 +175,7 @@
 		5FE960E990BFF7333CD19BE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				664999EF1ED20753002CBE72 /* CoreLocation.framework */,
 				424C763B419712FCCEB6B32A /* Pods_neighborhood_watch.framework */,
 				DCF1EFEFE807FA670B4D0F4A /* Pods_neighborhood_watchTests.framework */,
 				286F1E9ED12F2B9E6EDC8F82 /* Pods_neighborhood_watchUITests.framework */,
@@ -457,6 +469,8 @@
 			files = (
 				17CBE6201ED128FB005F6940 /* SecondViewController.swift in Sources */,
 				17CBE5EE1ED0F889005F6940 /* ViewController.swift in Sources */,
+				664999FA1ED2140B002CBE72 /* VCMapView.swift in Sources */,
+				664999F81ED21400002CBE72 /* Artwork.swift in Sources */,
 				17CBE5EC1ED0F889005F6940 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664999F31ED20AAF002CBE72 /* ViewController.swift in Sources */,
 				17CBE6011ED0F889005F6940 /* neighborhood_watchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664999F41ED20AB0002CBE72 /* ViewController.swift in Sources */,
 				17CBE60C1ED0F88A005F6940 /* neighborhood_watchUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,6 +628,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MVUXAH4EV3;
 				INFOPLIST_FILE = "neighborhood watch/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS-practice.neighborhood-watch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -626,6 +643,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MVUXAH4EV3;
 				INFOPLIST_FILE = "neighborhood watch/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS-practice.neighborhood-watch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
