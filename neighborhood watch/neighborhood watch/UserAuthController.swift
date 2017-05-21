@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class UserAuthController: UIViewController {
     
@@ -17,7 +18,51 @@ class UserAuthController: UIViewController {
     @IBOutlet var actionButton: UIButton!
     
     
-    @IBAction func action(_ sender: Any) {
+    @IBAction func action(_ sender: Any)
+    {
+        if emailText.text != "" && passwordText.text != ""
+        {
+            if segmentControl.selectedSegmentIndex == 0 //Login user
+            {
+                FIRAuth.auth()?.signIn(withEmail: emailText.text!, password: passwordText.text!, completion: { (user, error) in
+                    if user != nil
+                    {
+                        //Log in Successful
+                    }
+                    else
+                    {
+                        if let myError = error?.localizedDescription
+                        {
+                            print(myError)
+                        }
+                        else
+                        {
+                            print("ERROR")
+                        }
+                    }
+                })
+            }
+            else //Sign up user
+            {
+                FIRAuth.auth()?.createUser(withEmail: emailText.text!, password: passwordText.text!, completion: {(user, error) in
+                    if user != nil
+                    {
+                    
+                    }
+                    else
+                    {
+                        if let myError = error?.localizedDescription
+                        {
+                            print(myError)
+                        }
+                        else
+                        {
+                            print("ERROR")
+                        }
+                    }
+                })
+            }
+        }
     }
     
     override func viewDidLoad() {
