@@ -49,6 +49,7 @@ class SecondViewController: UIViewController {
                         if user != nil
                         {
                             self.performSegue(withIdentifier: "segue", sender: self)
+                            print("Success")
                         }
                         else
                         {
