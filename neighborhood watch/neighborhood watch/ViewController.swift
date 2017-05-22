@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseDatabase
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate{
@@ -18,6 +19,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet var mapView: MKMapView!
     
     let manager = CLLocationManager()
+    
+    var ref: DatabaseReference!
+    var refHandle: UInt!
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
@@ -37,6 +41,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference()
+        refHandle = ref.observe(DataEventType.value , with: {(snapshot) in
+            let dataDict = snapshot.value as! [String : AnyObject]
+            print(dataDict)
+        })
+        
         let initialLocation = CLLocation(latitude: 37.784633, longitude: -122.397414)
         
         let regionRadius: CLLocationDistance = 1000
@@ -55,20 +65,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         manager.startUpdatingLocation()
         
         
+        // can also use
+        // snapshot.childSnapshotForPath("full_name").value as! String
+        
         // show artwork on map
         //let location2 = Location(title: "DevBootcamp",
-                                 //locationName: "633 Folsom Street",
-                                 //discipline: "Sculpture",
-                                 //coordinate: CLLocationCoordinate2D(latitude: 37.784633, longitude: -122.397414))
+        //locationName: "633 Folsom Street",
+        //discipline: "Sculpture",
+        //coordinate: CLLocationCoordinate2D(latitude: 37.784633, longitude: -122.397414))
         
         //mapView.addAnnotation(location2)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
