@@ -39,10 +39,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        refHandle = ref.observe(DataEventType.value , with: {(snapshot) in
-            let dataDict = snapshot.value as! [String : AnyObject]
-            print(dataDict)
-        })
+//        refHandle = ref.observe(DataEventType.value , with: {(snapshot) in
+//            
+//            let dataDict = snapshot.value as! [String : AnyObject]
+//            print(dataDict)
+//            let enumerator = snapshot.children
+//            while let rest = enumerator.nextObject() as? DataSnapshot {
+//                print(rest.value)
+//            }
+//        })
+        ref.child("Blocked Roads").observe(.childAdded, with: { (snapshot) in
+            let enumerator = snapshot.children
+            var array: [Any] = []
+            while let rest = enumerator.nextObject() as? DataSnapshot {
+//                        print(rest.value!)
+                        array.append(rest.value!)
+                        }
+//            print(snapshot)
+              print(array)
+              print(array[0])
+        }, withCancel: nil)
         
         let initialLocation = CLLocation(latitude: 37.784633, longitude: -122.397414)
         
