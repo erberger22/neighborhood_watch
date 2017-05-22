@@ -13,6 +13,14 @@ class CreatePinViewController: UIViewController, UIPickerViewDataSource, UIPicke
 
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var descriptionField: UITextView!
+    var child = ""
+    
+    func checkChild()
+    {
+        print(child)
+    }
+    
+    
     
     var ref:DatabaseReference?
     
@@ -28,18 +36,17 @@ class CreatePinViewController: UIViewController, UIPickerViewDataSource, UIPicke
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return categories.count
     }
-    var child = ""
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         child = categories[row]
-        print(child)
     }
     
     @IBAction func submitButton(_ sender: Any) {
         ref = Database.database().reference()
         if descriptionField.text != ""
         {
-            ref?.child("\(child)").childByAutoId().setValue(descriptionField.text)
+            let pinInfo = ["Description": descriptionField.text!, "longitude": 123, "latitude": 321] as [String : Any]
+            ref?.child("\(child)").childByAutoId().setValue(pinInfo)
         }
     }
     
