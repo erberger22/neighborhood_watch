@@ -8,8 +8,10 @@
 
 import UIKit
 import FirebaseDatabase
+import CoreLocation
+import MapKit
 
-class CreatePinViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var descriptionField: UITextView!
@@ -19,8 +21,7 @@ class CreatePinViewController: UIViewController, UIPickerViewDataSource, UIPicke
     {
         print(child)
     }
-    
-    
+    let manager = CLLocationManager()
     
     var ref:DatabaseReference?
     
@@ -43,16 +44,17 @@ class CreatePinViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     @IBAction func submitButton(_ sender: Any) {
         ref = Database.database().reference()
+        let currentLatitude:CLLocationDegrees = manager.location!.coordinate.latitude
+        let currentLongitude:CLLocationDegrees = manager.location!.coordinate.longitude
         if descriptionField.text != ""
         {
-            let pinInfo = ["Description": descriptionField.text!, "longitude": 123, "latitude": 321] as [String : Any]
+            let pinInfo = ["Description": descriptionField.text!, "longitude": currentLongitude, "latitude": currentLatitude] as [String : Any]
             ref?.child("\(child)").childByAutoId().setValue(pinInfo)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -60,7 +62,4 @@ class CreatePinViewController: UIViewController, UIPickerViewDataSource, UIPicke
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
 }
