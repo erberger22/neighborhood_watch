@@ -262,6 +262,7 @@
 				TargetAttributes = {
 					17CBE5E71ED0F889005F6940 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = K6VXB9NMUA;
 						ProvisioningStyle = Automatic;
 					};
 					17CBE5FB1ED0F889005F6940 = {
@@ -629,13 +630,14 @@
 			baseConfigurationReference = E119422C575A55E9B0F986A6 /* Pods-neighborhood watch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K6VXB9NMUA;
 				INFOPLIST_FILE = "neighborhood watch/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "iOS-practice.neighborhood-watch";
+				PRODUCT_BUNDLE_IDENTIFIER = "neighborhood-watch-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -644,13 +646,14 @@
 			baseConfigurationReference = B45104F640D13BB2C013DA59 /* Pods-neighborhood watch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K6VXB9NMUA;
 				INFOPLIST_FILE = "neighborhood watch/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "iOS-practice.neighborhood-watch";
+				PRODUCT_BUNDLE_IDENTIFIER = "neighborhood-watch-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
