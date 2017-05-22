@@ -27,13 +27,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     {
         let location = locations[0]
         
-        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.02, 0.02)
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.005, 0.005)
         let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
         mapView.setRegion(region, animated:true)
-        
-        print(location.altitude)
-        print(location.speed)
         
         self.mapView.showsUserLocation = true
     }
@@ -59,10 +56,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         centerMapOnLocation(location: initialLocation)
         //mapView.delegate = self
+
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+
         
         
         // can also use
