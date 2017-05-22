@@ -57,7 +57,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                         }
 //            print(snapshot)
               print(array)
-              print(array[0])
+              var pinDescription = array[0]
+              var pinLongitude = array[3]
+              var pinLatitude = array[2]
+            var pinTimeStamp = array[4]
+            let newPin = Location(title: "Blocked    Roads", locationName: pinDescription as! String, discipline: "discipline",
+            coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees))
+            self.mapView.addAnnotation(newPin)
         }, withCancel: nil)
         
         let initialLocation = CLLocation(latitude: 37.784633, longitude: -122.397414)
