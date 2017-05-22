@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class CreatePinViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var descriptionField: UITextView!
+    
+    var ref:DatabaseReference?
     
     let categories = ["Sanitation","Suspicious Activity","Infrastructure","Crowd","Blocked Roads"]
     
@@ -24,11 +28,21 @@ class CreatePinViewController: UIViewController, UIPickerViewDataSource, UIPicke
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return categories.count
     }
-    //var child = ""
+    var child = ""
     
-    //func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //child = categories[row]
-    //}
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        child = categories[row]
+        print(child)
+    }
+    
+    @IBAction func submitButton(_ sender: Any) {
+        ref = Database.database().reference()
+        if descriptionField.text != ""
+        {
+            ref?.child("\(child)").childByAutoId().setValue(descriptionField.text)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
