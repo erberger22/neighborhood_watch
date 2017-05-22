@@ -10,7 +10,6 @@ import UIKit
 import FirebaseDatabase
 import CoreLocation
 
-
 class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var pickerView: UIPickerView!
@@ -47,11 +46,16 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
         ref = Database.database().reference()
         let currentLatitude:CLLocationDegrees = manager.location!.coordinate.latitude
         let currentLongitude:CLLocationDegrees = manager.location!.coordinate.longitude
-
-        
+        // Set the timestamp for each new PIN
+        let currentTime = Date().timeIntervalSince1970 as TimeInterval
+        // Set the time with hours and minutes based on location for new PIN
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = NSTimeZone.local
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+        let time = dateFormatter.string(from: Date())
         if descriptionField.text != ""
         {
-            let pinInfo = ["Description": descriptionField.text!, "longitude": currentLongitude, "latitude": currentLatitude] as [String : Any]
+            let pinInfo = ["Description": descriptionField.text!, "longitude": currentLongitude, "latitude": currentLatitude, "timestamp": currentTime, "createdAt": time] as [String : Any]
             ref?.child("\(child)").childByAutoId().setValue(pinInfo)
         }
     }
