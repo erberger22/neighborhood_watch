@@ -48,7 +48,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 //                print(rest.value)
 //            }
 //        })
-        ref.child("Blocked Roads").observe(.childAdded, with: { (snapshot) in
+        var categories = ["Blocked Roads", "Crowd", "Infrastructure", "Sanitation", "Suspicious Activity"]
+        for items in categories {
+        ref.child(items).observe(.childAdded, with: { (snapshot) in
             let enumerator = snapshot.children
             var array: [Any] = []
             while let rest = enumerator.nextObject() as? DataSnapshot {
@@ -65,6 +67,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees))
             self.mapView.addAnnotation(newPin)
         }, withCancel: nil)
+        }
         
         let initialLocation = CLLocation(latitude: 37.784633, longitude: -122.397414)
         
