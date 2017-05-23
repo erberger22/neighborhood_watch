@@ -43,7 +43,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let components: DateComponents = calender.dateComponents([.minute, .day, .hour], from: date2, to: date1)
         print(components)
         //if components.hour! >= 6
-        if (components.minute! >= 1 || components.day! >= 1 || components.hour! >= 1){
+        if (components.minute! >= 15 || components.day! >= 1 || components.hour! >= 1){
             return false
         }
         return true
