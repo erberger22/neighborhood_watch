@@ -35,6 +35,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.mapView.showsUserLocation = true
     }
     
+    func checkPinStatus(inputTimestamp:TimeInterval) -> (Bool){
+        let date1:Date = Date()
+        let date2:Date = Date(timeIntervalSince1970: inputTimestamp)
+        let calender:Calendar = Calendar.current
+        let components: DateComponents = calender.dateComponents([.minute, .day, .hour], from: date2, to: date1)
+        print(components)
+        //if components.hour! >= 6
+        if components.minute! >= 15{
+            return false
+        }
+        return true
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,9 +77,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
               var pinLongitude = array[3]
               var pinLatitude = array[2]
             var pinTimeStamp = array[4]
+            if (self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval)){
             let newPin = Location(title: items, locationName: pinDescription as! String, discipline: "discipline",
             coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees))
             self.mapView.addAnnotation(newPin)
+            }
         }, withCancel: nil)
         }
         
