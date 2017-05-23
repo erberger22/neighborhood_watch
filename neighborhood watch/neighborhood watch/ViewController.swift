@@ -22,6 +22,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     var ref: DatabaseReference!
     var refHandle: UInt!
+    let categories = ["Blocked Roads", "Crowd", "Infrastructure", "Sanitation", "Suspicious Activity"]
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
@@ -51,10 +52,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ref = Database.database().reference()
-
-        let categories = ["Blocked Roads", "Crowd", "Infrastructure", "Sanitation", "Suspicious Activity"]
         for items in categories {
         ref.child(items).observe(.childAdded, with: { (snapshot) in
             let enumerator = snapshot.children
@@ -62,40 +60,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             while let rest = enumerator.nextObject() as? DataSnapshot {
                         array.append(rest.value!)
                         }
-              print(array)
-              var pinDescription = array[0]
-              var pinLongitude = array[3]
-              var pinLatitude = array[2]
-            var pinTimeStamp = array[4]
+//          print(snapshot)
+            print(array)
+            let pinDescription = array[0]
+            let pinLongitude = array[3]
+            let pinLatitude = array[2]
+            let pinTimeStamp = array[4]
+            
             if (self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval)){
-            let newPin = Location(title: items,
-                locationName: pinDescription as! String,
-                discipline: items,
-                coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees))
-            self.mapView.addAnnotation(newPin)
+              let newPin = Location(title: items, locationName: pinDescription as! String, discipline: "discipline", coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees))
+              self.mapView.addAnnotation(newPin)
             }
-        }, withCancel: nil)
+          }, withCancel: nil)
         }
-        
-        let initialLocation = CLLocation(latitude: 37.784633, longitude: -122.397414)
-        
-        let regionRadius: CLLocationDistance = 1000
-        
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                      regionRadius * 2.0, regionRadius * 2.0)
-            mapView.setRegion(coordinateRegion, animated: true)
-        }
-        
-        centerMapOnLocation(location: initialLocation)
         mapView.delegate = self
-
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-
-        
     }
     
     override func didReceiveMemoryWarning() {

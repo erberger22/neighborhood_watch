@@ -8,8 +8,8 @@ extension ViewController: MKMapViewDelegate {
         if let annotation = annotation as? Location {
             let identifier = "pin"
             var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-                as? MKPinAnnotationView { // 2
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+            { // 2
                 dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
