@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		12BE2C651ED3AF9F0029A83A /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BE2C641ED3AF9F0029A83A /* MainNavigationController.swift */; };
-		174292301ED4AA8500D9C44C /* poop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1742922F1ED4AA8500D9C44C /* poop.png */; };
 		17CBE5EC1ED0F889005F6940 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE5EB1ED0F889005F6940 /* AppDelegate.swift */; };
 		17CBE5EE1ED0F889005F6940 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE5ED1ED0F889005F6940 /* ViewController.swift */; };
 		17CBE5F11ED0F889005F6940 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CBE5EF1ED0F889005F6940 /* Main.storyboard */; };
@@ -49,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		12BE2C641ED3AF9F0029A83A /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
-		1742922F1ED4AA8500D9C44C /* poop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poop.png; sourceTree = "<group>"; };
 		17CBE5E81ED0F889005F6940 /* neighborhood watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "neighborhood watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CBE5EB1ED0F889005F6940 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CBE5ED1ED0F889005F6940 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				17CBE5F41ED0F889005F6940 /* LaunchScreen.storyboard */,
 				17CBE6191ED0F8EC005F6940 /* GoogleService-Info.plist */,
 				17CBE5F71ED0F889005F6940 /* Info.plist */,
-				1742922F1ED4AA8500D9C44C /* poop.png */,
 				12BE2C641ED3AF9F0029A83A /* MainNavigationController.swift */,
 				FC57E9A51ED4B08D0055B14E /* PoopAnnotationView.swift */,
 			);
@@ -315,7 +312,6 @@
 			files = (
 				17CBE5F61ED0F889005F6940 /* LaunchScreen.storyboard in Resources */,
 				17CBE5F31ED0F889005F6940 /* Assets.xcassets in Resources */,
-				174292301ED4AA8500D9C44C /* poop.png in Resources */,
 				17CBE5F11ED0F889005F6940 /* Main.storyboard in Resources */,
 				17CBE61A1ED0F8EC005F6940 /* GoogleService-Info.plist in Resources */,
 			);
