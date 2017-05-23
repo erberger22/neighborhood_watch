@@ -20,7 +20,7 @@
 		664999F01ED20753002CBE72 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664999EF1ED20753002CBE72 /* CoreLocation.framework */; };
 		664999F31ED20AAF002CBE72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE5ED1ED0F889005F6940 /* ViewController.swift */; };
 		664999F41ED20AB0002CBE72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE5ED1ED0F889005F6940 /* ViewController.swift */; };
-		664999F81ED21400002CBE72 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664999F71ED21400002CBE72 /* Artwork.swift */; };
+		664999F81ED21400002CBE72 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664999F71ED21400002CBE72 /* Location.swift */; };
 		664999FA1ED2140B002CBE72 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664999F91ED2140B002CBE72 /* VCMapView.swift */; };
 		7F2F55AC0185180722777EE3 /* Pods_neighborhood_watchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286F1E9ED12F2B9E6EDC8F82 /* Pods_neighborhood_watchUITests.framework */; };
 		8B3B7BD238F8DC218F55E17B /* Pods_neighborhood_watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424C763B419712FCCEB6B32A /* Pods_neighborhood_watch.framework */; };
@@ -67,7 +67,7 @@
 		4E7DB6D7B4715EEE6DC0A578 /* Pods-neighborhood watchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neighborhood watchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-neighborhood watchUITests/Pods-neighborhood watchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5170BE15771C831BAC0AD2AD /* Pods-neighborhood watchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neighborhood watchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-neighborhood watchUITests/Pods-neighborhood watchUITests.release.xcconfig"; sourceTree = "<group>"; };
 		664999EF1ED20753002CBE72 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		664999F71ED21400002CBE72 /* Artwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		664999F71ED21400002CBE72 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		664999F91ED2140B002CBE72 /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		686EFBEFB0381D963430DF94 /* Pods-neighborhood watchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neighborhood watchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-neighborhood watchTests/Pods-neighborhood watchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B45104F640D13BB2C013DA59 /* Pods-neighborhood watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neighborhood watch.release.xcconfig"; path = "Pods/Target Support Files/Pods-neighborhood watch/Pods-neighborhood watch.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		17CBE5EA1ED0F889005F6940 /* neighborhood watch */ = {
 			isa = PBXGroup;
 			children = (
-				664999F71ED21400002CBE72 /* Artwork.swift */,
+				664999F71ED21400002CBE72 /* Location.swift */,
 				17CBE5EB1ED0F889005F6940 /* AppDelegate.swift */,
 				17CBE5ED1ED0F889005F6940 /* ViewController.swift */,
 				664999F91ED2140B002CBE72 /* VCMapView.swift */,
@@ -265,7 +265,7 @@
 				TargetAttributes = {
 					17CBE5E71ED0F889005F6940 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = K6VXB9NMUA;
+						DevelopmentTeam = HNAJJ5CKA7;
 						ProvisioningStyle = Automatic;
 					};
 					17CBE5FB1ED0F889005F6940 = {
@@ -478,7 +478,7 @@
 				C03173C41ED241F900467F2B /* CreatePinViewController.swift in Sources */,
 				664999FA1ED2140B002CBE72 /* VCMapView.swift in Sources */,
 				12BE2C651ED3AF9F0029A83A /* MainNavigationController.swift in Sources */,
-				664999F81ED21400002CBE72 /* Artwork.swift in Sources */,
+				664999F81ED21400002CBE72 /* Location.swift in Sources */,
 				17CBE5EC1ED0F889005F6940 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -634,12 +634,14 @@
 			baseConfigurationReference = E119422C575A55E9B0F986A6 /* Pods-neighborhood watch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K6VXB9NMUA;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = HNAJJ5CKA7;
 				INFOPLIST_FILE = "neighborhood watch/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "neighborhood-watch-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -650,12 +652,14 @@
 			baseConfigurationReference = B45104F640D13BB2C013DA59 /* Pods-neighborhood watch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K6VXB9NMUA;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = HNAJJ5CKA7;
 				INFOPLIST_FILE = "neighborhood watch/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "neighborhood-watch-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

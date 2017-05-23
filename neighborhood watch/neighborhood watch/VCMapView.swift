@@ -1,11 +1,10 @@
-import Foundation
-
 import MapKit
 
 extension ViewController: MKMapViewDelegate {
     
     // 1
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView,
+                 viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? Location {
             let identifier = "pin"
             var view: MKPinAnnotationView
@@ -19,6 +18,7 @@ extension ViewController: MKMapViewDelegate {
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+<<<<<<< HEAD
                 
                 //                switch identifier {
                 //                case "Sculpture", "Plaque":
@@ -28,16 +28,21 @@ extension ViewController: MKMapViewDelegate {
                 //                default:
                 //                    view.pinTintColor = UIColor.red
                 //                }
+=======
+>>>>>>> cfca825ccac542f04df29a58032fc656db8e7fdb
             }
+            
+            view.pinTintColor = annotation.pinTintColor()
             return view
         }
         return nil
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
-                 calloutAccessoryControlTapped control: UIControl) {
-        let viewLocation = view.annotation as! Location
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let location = view.annotation as! Location
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        viewLocation.mapItem().openInMaps(launchOptions: launchOptions)
+        location.mapItem().openInMaps(launchOptions: launchOptions)
     }
+    
 }
+
