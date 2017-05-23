@@ -18,18 +18,6 @@ extension ViewController: MKMapViewDelegate {
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
-<<<<<<< HEAD
-                
-                //                switch identifier {
-                //                case "Sculpture", "Plaque":
-                //                    view.pinTintColor = UIColor.red
-                //                case "Mural", "Monument":
-                //                    view.pinTintColor = UIColor.purple
-                //                default:
-                //                    view.pinTintColor = UIColor.red
-                //                }
-=======
->>>>>>> cfca825ccac542f04df29a58032fc656db8e7fdb
             }
             
             view.pinTintColor = annotation.pinTintColor()
