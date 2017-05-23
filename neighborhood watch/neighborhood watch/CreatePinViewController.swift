@@ -14,7 +14,7 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
 
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var descriptionField: UITextView!
-    var child = ""
+    var child = "Sanitation"
     
     func checkChild()
     {
@@ -40,6 +40,7 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         child = categories[row]
+
     }
     
     @IBAction func submitButton(_ sender: Any) {
@@ -56,6 +57,9 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
         if descriptionField.text != ""
         {
             let pinInfo = ["Description": descriptionField.text!, "longitude": currentLongitude, "latitude": currentLatitude, "timestamp": currentTime, "createdAt": time] as [String : Any]
+            print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+            print(child)
+            print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
             ref?.child("\(child)").childByAutoId().setValue(pinInfo)
         }
         self.dismiss(animated: true, completion: nil)
