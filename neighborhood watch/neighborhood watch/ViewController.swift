@@ -65,7 +65,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                 let pinLongitude = array[3]
                 let pinLatitude = array[2]
                 let pinTimeStamp = array[4]
-                let newPin = Location(title: items, locationName: pinDescription as! String, discipline: "discipline", coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees))
+                let newPin = Location(title: items, locationName: pinDescription as! String, discipline: items, coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees))
                 //print(self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval))
                 if (self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval)){
                     self.mapView.addAnnotation(newPin)
