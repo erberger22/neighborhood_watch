@@ -9,13 +9,11 @@
 import UIKit
 import MapKit
 import CoreLocation
-import FirebaseDatabase
+import Firebase
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate{
 
-    
-    
     @IBOutlet var mapView: MKMapView!
     
     let manager = CLLocationManager()

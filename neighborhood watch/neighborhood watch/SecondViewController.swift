@@ -30,7 +30,8 @@ class SecondViewController: UIViewController {
                             print("Success")
 //                            self.performSegue(withIdentifier: "segue", sender: self)
                             let mapVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC") as! ViewController
-                            self.present(mapVC, animated: true, completion: nil)
+                            self.navigationController?.pushViewController(mapVC, animated: true)
+
                         }
                         else
                         {
@@ -51,8 +52,11 @@ class SecondViewController: UIViewController {
                         if user != nil
                         {
 //                            self.performSegue(withIdentifier: "segue", sender: self)
-                            let mapVC = UIStoryboard.init(name: "main", bundle: nil).instantiateViewController(withIdentifier: "MapVC") as! ViewController
-                            self.present(mapVC, animated: true, completion: nil)
+
+                            let mapVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC") as! ViewController
+                            self.navigationController?.pushViewController(mapVC, animated: true)
+
+
                             print("Success")
                         }
                         else

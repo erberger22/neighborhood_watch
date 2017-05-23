@@ -7,21 +7,25 @@ extension ViewController: MKMapViewDelegate {
                  viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? Location {
             let identifier = "pin"
-            var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
-            { // 2
-                dequeuedView.annotation = annotation
-                view = dequeuedView
+            var view: MKAnnotationView
+            if mapView.dequeueReusableAnnotationView(withIdentifier: annotation.subtitle!) != nil {
+                view = MKAnnotationView()
+                view.annotation = annotation
+                view.image = annotation.image
+                print("MIKE: annotation image \(annotation.image)")
+                return view
             } else {
+                view = MKAnnotationView()
+                view.annotation = annotation
+                view.image = annotation.image
+                
+                print("MIKE: annotation image \(annotation.image)")
                 // 3
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+                return view
             }
-            
-            view.pinTintColor = annotation.pinTintColor()
-            return view
         }
         return nil
     }

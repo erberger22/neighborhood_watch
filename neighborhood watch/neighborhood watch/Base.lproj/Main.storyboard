@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ttT-n8-7Ye">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GdR-IF-ed5">
+
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="596" width="375" height="71"/>
                                 <state key="normal" title="Add Pin"/>
                                 <connections>
-                                    <segue destination="bEr-xO-9vZ" kind="show" id="F77-oT-kjG"/>
+                                    <segue destination="bEr-xO-9vZ" kind="modal" id="F77-oT-kjG"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HKa-em-Exm">
@@ -52,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2352.8000000000002" y="-317.09145427286359"/>
+            <point key="canvasLocation" x="2311" y="-317"/>
         </scene>
         <!--Create Pin View Controller-->
         <scene sceneID="YCh-HG-ZBh">
@@ -72,7 +73,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-Kw-qdr">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-Kw-qdr">
                                 <rect key="frame" x="16" y="419.5" width="343" height="155.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -184,6 +185,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="w1h-2A-VGx"/>
                     <connections>
                         <outlet property="actionButton" destination="O8c-fD-ghi" id="7NQ-F9-cN2"/>
                         <outlet property="emailText" destination="zyk-pa-iEs" id="49L-jI-9st"/>
@@ -194,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uup-S5-s69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2009" y="-1067"/>
+            <point key="canvasLocation" x="2948" y="-1067.3163418290856"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="X3X-Sz-HdX">
@@ -213,6 +215,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gm8-Fo-z18" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1664.8" y="-317.09145427286359"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hNj-7h-cio">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GdR-IF-ed5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a1y-jf-ox1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ttT-n8-7Ye" kind="relationship" relationship="rootViewController" id="QAz-mt-ZE3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DaR-E3-WWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2008.8" y="-1067.3163418290856"/>
         </scene>
     </scenes>
 </document>
