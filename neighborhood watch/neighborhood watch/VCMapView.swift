@@ -9,8 +9,8 @@ extension ViewController: MKMapViewDelegate {
         if let annotation = annotation as? Location {
             let identifier = "pin"
             var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-                as? MKPinAnnotationView { // 2
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+            { // 2
                 dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
@@ -18,7 +18,7 @@ extension ViewController: MKMapViewDelegate {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as! UIView
+                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
                 
                 //                switch identifier {
                 //                case "Sculpture", "Plaque":
