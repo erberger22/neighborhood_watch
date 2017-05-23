@@ -58,6 +58,8 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
             let pinInfo = ["Description": descriptionField.text!, "longitude": currentLongitude, "latitude": currentLatitude, "timestamp": currentTime, "createdAt": time] as [String : Any]
             ref?.child("\(child)").childByAutoId().setValue(pinInfo)
         }
+
+        
     }
     
     override func viewDidLoad() {
