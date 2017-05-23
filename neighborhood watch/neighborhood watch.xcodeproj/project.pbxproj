@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12BE2C651ED3AF9F0029A83A /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BE2C641ED3AF9F0029A83A /* MainNavigationController.swift */; };
 		17CBE5EC1ED0F889005F6940 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE5EB1ED0F889005F6940 /* AppDelegate.swift */; };
 		17CBE5EE1ED0F889005F6940 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE5ED1ED0F889005F6940 /* ViewController.swift */; };
 		17CBE5F11ED0F889005F6940 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CBE5EF1ED0F889005F6940 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12BE2C641ED3AF9F0029A83A /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		17CBE5E81ED0F889005F6940 /* neighborhood watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "neighborhood watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CBE5EB1ED0F889005F6940 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CBE5ED1ED0F889005F6940 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				17CBE5F41ED0F889005F6940 /* LaunchScreen.storyboard */,
 				17CBE6191ED0F8EC005F6940 /* GoogleService-Info.plist */,
 				17CBE5F71ED0F889005F6940 /* Info.plist */,
+				12BE2C641ED3AF9F0029A83A /* MainNavigationController.swift */,
 			);
 			path = "neighborhood watch";
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				17CBE5EE1ED0F889005F6940 /* ViewController.swift in Sources */,
 				C03173C41ED241F900467F2B /* CreatePinViewController.swift in Sources */,
 				664999FA1ED2140B002CBE72 /* VCMapView.swift in Sources */,
+				12BE2C651ED3AF9F0029A83A /* MainNavigationController.swift in Sources */,
 				664999F81ED21400002CBE72 /* Artwork.swift in Sources */,
 				17CBE5EC1ED0F889005F6940 /* AppDelegate.swift in Sources */,
 			);
