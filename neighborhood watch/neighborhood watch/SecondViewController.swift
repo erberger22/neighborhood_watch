@@ -28,7 +28,9 @@ class SecondViewController: UIViewController {
                         {
                             //Log in Successful
                             print("Success")
-                            self.performSegue(withIdentifier: "segue", sender: self)
+//                            self.performSegue(withIdentifier: "segue", sender: self)
+                            let mapVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC") as! ViewController
+                            self.present(mapVC, animated: true, completion: nil)
                         }
                         else
                         {
@@ -48,7 +50,9 @@ class SecondViewController: UIViewController {
                     Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!, completion: {(user, error) in
                         if user != nil
                         {
-                            self.performSegue(withIdentifier: "segue", sender: self)
+//                            self.performSegue(withIdentifier: "segue", sender: self)
+                            let mapVC = UIStoryboard.init(name: "main", bundle: nil).instantiateViewController(withIdentifier: "MapVC") as! ViewController
+                            self.present(mapVC, animated: true, completion: nil)
                             print("Success")
                         }
                         else
