@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
-import FirebaseDatabase
+import Firebase
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate{
@@ -61,14 +61,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                         array.append(rest.value!)
                         }
 //          print(snapshot)
+            print("================================")
             print(array)
+            print("================================")
             let pinDescription = array[0]
             let pinLongitude = array[3]
             let pinLatitude = array[2]
             let pinTimeStamp = array[4]
             
             if (self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval)){
-              let newPin = Location(title: items, locationName: pinDescription as! String, discipline: "discipline", coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees))
+              let newPin = Location(title: items, locationName: pinDescription as! String, discipline: items, coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees))
               self.mapView.addAnnotation(newPin)
             }
           }, withCancel: nil)
