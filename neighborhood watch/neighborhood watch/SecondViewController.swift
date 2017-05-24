@@ -38,6 +38,10 @@ class SecondViewController: UIViewController {
                             if let myError = error?.localizedDescription
                             {
                                 print(myError)
+                                let alert = UIAlertController(title: "Invalid Email or Password", message: myError, preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                               
                             }
                             else
                             {
@@ -64,6 +68,9 @@ class SecondViewController: UIViewController {
                             if let myError = error?.localizedDescription
                             {
                                 print(myError)
+                                let alert = UIAlertController(title: "Invalid Email or Password", message: myError, preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
                             }
                             else
                             {
