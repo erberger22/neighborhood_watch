@@ -52,6 +52,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     func update() {
         // Get data from the firebase
         self.mapView.removeAnnotations(self.mapView.annotations)
+        showPin()
+    }
+    
+    func showPin(){
         ref = Database.database().reference()
         for items in categories {
             ref.child(items).observe(.childAdded, with: { (snapshot) in
@@ -76,10 +80,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.showPin()
         // Refreshing the page every 15 seconds
         Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-        
         mapView.delegate = self
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
