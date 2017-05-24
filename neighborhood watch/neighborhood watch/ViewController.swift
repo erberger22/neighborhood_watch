@@ -17,7 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet var mapView: MKMapView!
     
     let manager = CLLocationManager()
-    
+    internal var upvoteCount = false
     var ref: DatabaseReference!
     var refHandle: UInt!
     var timer: Timer!
@@ -60,16 +60,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         for items in categories {
             ref.child(items).observe(.childAdded, with: { (snapshot) in
                 let enumerator = snapshot.children
-                var array: [Any] = []
+//                The id of each pin that is made
+                let pinID = snapshot.key
+                var array: [Any] = [pinID]
                 while let rest = enumerator.nextObject() as? DataSnapshot {
                     array.append(rest.value!)
                 }
-                print(array)
-                let pinDescription = array[0]
-                let pinLongitude = array[3]
-                let pinLatitude = array[2]
-                let pinTimeStamp = array[4]
-                let newPin = Location(title: items, locationName: pinDescription as! String, discipline: items, coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees))
+//                print("***********************")
+//                print(array)
+//                print("***********************")
+                let pinIdInDatabase = array[0]
+                let pinDescription = array[1]
+                let pinLongitude = array[4]
+                let pinLatitude = array[3]
+                let pinTimeStamp = array[5]
+                let newPin = Location(title: items, locationName: pinDescription as! String, discipline: items, coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees), pinKey: pinIdInDatabase as! String)
                 //print(self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval))
                 if (self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval)){
                     self.mapView.addAnnotation(newPin)
@@ -85,6 +90,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         
         self.showPin()
+        ref = Database.database().reference()
         // Refreshing the page every 15 seconds
         Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         

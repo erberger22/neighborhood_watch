@@ -56,7 +56,7 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
         let time = dateFormatter.string(from: Date())
         if descriptionField.text != ""
         {
-            let pinInfo = ["Description": descriptionField.text!, "longitude": currentLongitude, "latitude": currentLatitude, "timestamp": currentTime, "createdAt": time] as [String : Any]
+            let pinInfo = ["Description": descriptionField.text!, "longitude": currentLongitude, "latitude": currentLatitude, "timestamp": currentTime, "createdAt": time, "zConformation": 0] as [String : Any]
             print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
             print(child)
             print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")

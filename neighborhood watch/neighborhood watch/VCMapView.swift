@@ -1,4 +1,5 @@
 import MapKit
+import FirebaseDatabase
 
 extension ViewController: MKMapViewDelegate {
     
@@ -39,32 +40,72 @@ extension ViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
+//        print("*********************")
+//        print("view annotation")
+//        print(view.annotation!.coordinate)
+//        print(view.annotation!.pinKey)
+//        print("*********************")
+        
         if control == view.rightCalloutAccessoryView{
             let location = view.annotation as! Location
             let launchOptions = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving]
             location.mapItem().openInMaps(launchOptions: launchOptions)
         }
         if control == view.leftCalloutAccessoryView{
-            createAlert(title: "Is this still here?", message: "")
+            
+            let location = view.annotation as! Location
+            var pinKeyString = location.pinKey!
+            var pinTitle = location.title!
+            
+//            print("&&&&&&&&&&&&&&&&&&&&&&")
+//            print(pinTitle)
+//            print(pinKeyString)
+//            print("&&&&&&&&&&&&&&&&&&&&&&")
+            print("OMG")
+            let alert = createAlert(title: "Is this still here?", message: "", pinKey: pinKeyString, pinCategory: pinTitle)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func createAlert (title:String, message:String){
+    func createAlert (title:String, message:String, pinKey:String, pinCategory:String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
+    
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil
+//            alert.dismiss(animated
+//            : true, completion: nil)
 //            ADD CODE IF THEY CHOOSE YES
-            )
+            var _ = self.ref.child(pinCategory).child(pinKey).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                print("Hello, World!")
+                if let snapshot = snapshot.value as? [String: Any?] {
+                    guard let count = snapshot["zConformation"] as? Int else { return }
+                    self.ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": count + 1])
+                    self.upvoteCount = true
+                    return
+                }
+            }) { (error) in
+                print(error.localizedDescription)
+            }
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil
+//            alert.dismiss(animated: true, completion: nil)
 //            ADD CODE IF THEY CHOOSE NO
-            )
+            var _ = self.ref.child(pinCategory).child(pinKey).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                print("Hello, World!")
+                if let snapshot = snapshot.value as? [String: Any?] {
+                    guard let count = snapshot["zConformation"] as? Int else { return }
+                    self.ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": count - 1])
+                    self.upvoteCount = true
+                    return
+                }
+            }) { (error) in
+                print(error.localizedDescription)
+            }
         }))
-        
-        self.present(alert, animated: true, completion: nil)
+        print("ZOMG")
+        return alert
     }
 }
 
