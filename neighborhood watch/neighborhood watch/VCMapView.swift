@@ -71,25 +71,30 @@ extension ViewController: MKMapViewDelegate {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        print("&&&&&&&&&&&&&&&&&&&&&&")
-//        print(ref.child(pinCategory).child(pinKey))
-//        var conter = ref.value(forKeyPath: "https://neighborhood-watch-e4f2d.firebaseio.com/\(pinCategory)/\(pinKey)/zConformation")
-//        ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation":1])
-//        print(ref.queryOrdered(byChild: pinCategory).queryEqual(toValue: pinKey))
-        print("&&&&&&&&&&&&&&&&&&&&&&")
         
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
+//            alert.dismiss(animated
+//            : true, completion: nil)
 //            ADD CODE IF THEY CHOOSE YES
-            ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": 1])
+            var _ = ref.child(pinCategory).child(pinKey).observe(.value, with: {(snapshot) in
+                print("Hello, World!")
+                if let snapshot = snapshot.value as? [String: Any?] {
+                    guard let count = snapshot["zConformation"] as? Int else { return }
+                    ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": count + 1])
 
+                }
+            })
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
+//            alert.dismiss(animated: true, completion: nil)
 //            ADD CODE IF THEY CHOOSE NO
-            ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": -1])
-
+            var _ = ref.child(pinCategory).child(pinKey).observe(.value, with: {(snapshot) in
+                if let snapshot = snapshot.value as? [String: Any?] {
+                    guard let count = snapshot["zConformation"] as? Int else { return }
+                    ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": count - 1])
+                }
+            })
         }))
         
         self.present(alert, animated: true, completion: nil)

@@ -17,7 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet var mapView: MKMapView!
     
     let manager = CLLocationManager()
-    
+    internal var upvoteCount: Int?
     var ref: DatabaseReference!
     var refHandle: UInt!
     var timer: Timer!
