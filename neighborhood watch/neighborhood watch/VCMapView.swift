@@ -39,29 +39,44 @@ extension ViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
+//        print("*********************")
+//        print("view annotation")
+//        print(view.annotation!.coordinate)
+//        print(view.annotation!.pinKey)
+//        print("*********************")
+        
         if control == view.rightCalloutAccessoryView{
             let location = view.annotation as! Location
             let launchOptions = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving]
             location.mapItem().openInMaps(launchOptions: launchOptions)
         }
         if control == view.leftCalloutAccessoryView{
-            createAlert(title: "Is this still here?", message: "")
+            
+            let location = view.annotation as! Location
+            var pinKeyString = location.pinKey as! String
+            createAlert(title: "Is this still here?", message: "", pinKey: pinKeyString)
+            
         }
     }
     
-    func createAlert (title:String, message:String){
+    func createAlert (title:String, message:String, pinKey:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil
+            alert.dismiss(animated: true, completion: nil)
 //            ADD CODE IF THEY CHOOSE YES
-            )
+                print("*********************")
+                print(pinKey)
+                print("*********************")
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil
+            alert.dismiss(animated: true, completion: nil)
 //            ADD CODE IF THEY CHOOSE NO
-            )
+            print("*********************")
+            print(pinKey)
+            print("*********************")
+
         }))
         
         self.present(alert, animated: true, completion: nil)
