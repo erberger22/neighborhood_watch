@@ -28,6 +28,12 @@ class SecondViewController: UIViewController {
                         {
                             //Log in Successful
                             print("Success")
+                            
+                            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                            UserDefaults.standard.synchronize()
+                            
+                            
+//                            if UserDefaults.standard.value(forKey: <#T##String#>) as Bool == true
 //                            self.performSegue(withIdentifier: "segue", sender: self)
                             let mapVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC") as! ViewController
                             self.navigationController?.pushViewController(mapVC, animated: true)

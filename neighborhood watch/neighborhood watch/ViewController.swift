@@ -80,6 +80,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        
+        
         self.showPin()
         // Refreshing the page every 15 seconds
         Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
@@ -91,11 +95,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         manager.startUpdatingLocation()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func handleLogout() {
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        UserDefaults.standard.synchronize()
+        
+//        let loginController = SecondViewController()
+//        present(loginController, animated: true, completion: nil)
     }
-    
     
 }
 
