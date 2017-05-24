@@ -74,24 +74,21 @@ extension ViewController: MKMapViewDelegate {
         print("&&&&&&&&&&&&&&&&&&&&&&")
 //        print(ref.child(pinCategory).child(pinKey))
 //        var conter = ref.value(forKeyPath: "https://neighborhood-watch-e4f2d.firebaseio.com/\(pinCategory)/\(pinKey)/zConformation")
-        ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation":1])
+//        ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation":1])
 //        print(ref.queryOrdered(byChild: pinCategory).queryEqual(toValue: pinKey))
         print("&&&&&&&&&&&&&&&&&&&&&&")
         
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
 //            ADD CODE IF THEY CHOOSE YES
-                print("*********************")
-                print(pinKey)
-                print("*********************")
+            ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": 1])
+
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
 //            ADD CODE IF THEY CHOOSE NO
-            print("*********************")
-            print(pinKey)
-            print("*********************")
+            ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": -1])
 
         }))
         
