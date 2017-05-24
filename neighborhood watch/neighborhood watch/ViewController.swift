@@ -83,6 +83,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.showPin()
         // Refreshing the page every 15 seconds
         Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        
         mapView.delegate = self
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
