@@ -1,4 +1,5 @@
 import MapKit
+import FirebaseDatabase
 
 extension ViewController: MKMapViewDelegate {
     
@@ -53,14 +54,29 @@ extension ViewController: MKMapViewDelegate {
         if control == view.leftCalloutAccessoryView{
             
             let location = view.annotation as! Location
-            var pinKeyString = location.pinKey as! String
-            createAlert(title: "Is this still here?", message: "", pinKey: pinKeyString)
+            var pinKeyString = location.pinKey!
+            var pinTitle = location.title!
+            
+//            print("&&&&&&&&&&&&&&&&&&&&&&")
+//            print(pinTitle)
+//            print(pinKeyString)
+//            print("&&&&&&&&&&&&&&&&&&&&&&")
+            
+            createAlert(title: "Is this still here?", message: "", pinKey: pinKeyString, pinCategory: pinTitle)
             
         }
     }
     
-    func createAlert (title:String, message:String, pinKey:String){
+    func createAlert (title:String, message:String, pinKey:String, pinCategory:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        print("&&&&&&&&&&&&&&&&&&&&&&")
+//        print(ref.child(pinCategory).child(pinKey))
+//        var conter = ref.value(forKeyPath: "https://neighborhood-watch-e4f2d.firebaseio.com/\(pinCategory)/\(pinKey)/zConformation")
+        ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation":1])
+//        print(ref.queryOrdered(byChild: pinCategory).queryEqual(toValue: pinKey))
+        print("&&&&&&&&&&&&&&&&&&&&&&")
         
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
