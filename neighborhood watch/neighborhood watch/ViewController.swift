@@ -17,7 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet var mapView: MKMapView!
     
     let manager = CLLocationManager()
-    internal var upvoteCount: Int?
+    internal var upvoteCount = false
     var ref: DatabaseReference!
     var refHandle: UInt!
     var timer: Timer!
@@ -86,6 +86,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showPin()
+        ref = Database.database().reference()
         // Refreshing the page every 15 seconds
         Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         mapView.delegate = self

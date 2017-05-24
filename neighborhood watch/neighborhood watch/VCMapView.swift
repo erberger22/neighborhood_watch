@@ -61,43 +61,51 @@ extension ViewController: MKMapViewDelegate {
 //            print(pinTitle)
 //            print(pinKeyString)
 //            print("&&&&&&&&&&&&&&&&&&&&&&")
-            
-            createAlert(title: "Is this still here?", message: "", pinKey: pinKeyString, pinCategory: pinTitle)
-            
+            print("OMG")
+            let alert = createAlert(title: "Is this still here?", message: "", pinKey: pinKeyString, pinCategory: pinTitle)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func createAlert (title:String, message:String, pinKey:String, pinCategory:String){
+    func createAlert (title:String, message:String, pinKey:String, pinCategory:String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        
+    
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
 //            alert.dismiss(animated
 //            : true, completion: nil)
 //            ADD CODE IF THEY CHOOSE YES
-            var _ = ref.child(pinCategory).child(pinKey).observe(.value, with: {(snapshot) in
+            var _ = self.ref.child(pinCategory).child(pinKey).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
                 print("Hello, World!")
                 if let snapshot = snapshot.value as? [String: Any?] {
                     guard let count = snapshot["zConformation"] as? Int else { return }
-                    ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": count + 1])
-
+                    self.ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": count + 1])
+                    self.upvoteCount = true
+                    return
                 }
-            })
+            }) { (error) in
+                print(error.localizedDescription)
+            }
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
 //            alert.dismiss(animated: true, completion: nil)
 //            ADD CODE IF THEY CHOOSE NO
-            var _ = ref.child(pinCategory).child(pinKey).observe(.value, with: {(snapshot) in
+            var _ = self.ref.child(pinCategory).child(pinKey).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                print("Hello, World!")
                 if let snapshot = snapshot.value as? [String: Any?] {
                     guard let count = snapshot["zConformation"] as? Int else { return }
-                    ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": count - 1])
+                    self.ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": count - 1])
+                    self.upvoteCount = true
+                    return
                 }
-            })
+            }) { (error) in
+                print(error.localizedDescription)
+            }
         }))
-        
-        self.present(alert, animated: true, completion: nil)
+        print("ZOMG")
+        return alert
     }
 }
 
