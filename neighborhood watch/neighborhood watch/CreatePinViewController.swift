@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import CoreLocation
 
-class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var descriptionField: UITextView!
@@ -44,6 +44,7 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
     }
     
     @IBAction func submitButton(_ sender: Any) {
+        descriptionField.resignFirstResponder()
         ref = Database.database().reference()
         let currentLatitude:CLLocationDegrees = manager.location!.coordinate.latitude
         let currentLongitude:CLLocationDegrees = manager.location!.coordinate.longitude
@@ -65,8 +66,12 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        self.UIScrollViewKeyboardDismissMode.onDrag
         // Do any additional setup after loading the view.
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        descriptionField.resignFirstResponder()
     }
     
 }
