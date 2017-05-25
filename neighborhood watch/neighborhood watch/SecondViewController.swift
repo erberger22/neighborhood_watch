@@ -35,7 +35,7 @@ class SecondViewController: UIViewController {
                         if user != nil
                         {
                             //Log in Successful
-                            UserDefaults.standard.set("\(user?.uid)", forKey: "firebaseUser")
+                            UserDefaults.standard.set(true, forKey: "isLoggedIn")
                             DispatchQueue.main.async {
                                 self.dismiss(animated: true, completion: {
                                     let pinVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PinVC") as! CreatePinViewController
@@ -67,7 +67,7 @@ class SecondViewController: UIViewController {
                         {
 //                            self.performSegue(withIdentifier: "segue", sender: self)
 
-                            UserDefaults.standard.set("\(user?.uid)", forKey: "firebaseUser")
+                            UserDefaults.standard.set(true, forKey: "isLoggedIn")
                             DispatchQueue.main.async {
                                 self.dismiss(animated: true, completion: {
                                     let pinVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PinVC") as! CreatePinViewController

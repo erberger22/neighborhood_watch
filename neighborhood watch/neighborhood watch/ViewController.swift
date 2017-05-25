@@ -55,27 +55,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         showPin()
     }
     
+    func logoutButton(){
+        if (UserDefaults.standard.value(forKey: "isLoggedIn") as! Bool == true){
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.handleLogout))
+        }
+    }
+    
     func showPin(){
+        logoutButton()
         ref = Database.database().reference()
         for items in categories {
             ref.child(items).observe(.childAdded, with: { (snapshot) in
                 let enumerator = snapshot.children
-//                The id of each pin that is made
+
                 let pinID = snapshot.key
                 var array: [Any] = [pinID]
                 while let rest = enumerator.nextObject() as? DataSnapshot {
                     array.append(rest.value!)
                 }
-//                print("***********************")
-//                print(array)
-//                print("***********************")
                 let pinIdInDatabase = array[0]
                 let pinDescription = array[1]
                 let pinLongitude = array[4]
                 let pinLatitude = array[3]
                 let pinTimeStamp = array[5]
+                //let pinVote = array[6]
                 let newPin = Location(title: items, locationName: pinDescription as! String, discipline: items, coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees), pinKey: pinIdInDatabase as! String)
-                //print(self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval))
                 if (self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval)){
                     self.mapView.addAnnotation(newPin)
                 }
@@ -85,14 +89,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.handleLogout))
-        
-        
         self.showPin()
         ref = Database.database().reference()
-        // Refreshing the page every 15 seconds
-        Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         
         mapView.delegate = self
         manager.delegate = self
@@ -102,19 +101,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     func handleLogout() {
-//        UserDefaults.standard.setNilValueForKey("firebaseUser")
-        UserDefaults.standard.set(nil, forKey: "firebaseUser")
-        if (UserDefaults.standard.value(forKey: "firebaseUser") != nil){
-            print("logged out")
-        }
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        
-        print("YAY WE LOGGED OUT!")
         self.navigationItem.setLeftBarButton(nil, animated: false)
     }
     
@@ -123,7 +116,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     private func moveToCreatePinVC() {
-        if (UserDefaults.standard.value(forKey: "firebaseUser") != nil) {
+        if (UserDefaults.standard.value(forKey: "isLoggedIn") as! Bool == true) {
             let pinVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PinVC") as! CreatePinViewController
             self.navigationController?.pushViewController(pinVC, animated: true)
         } else {

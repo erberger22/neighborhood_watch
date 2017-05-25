@@ -57,9 +57,6 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
         if descriptionField.text != ""
         {
             let pinInfo = ["Description": descriptionField.text!, "longitude": currentLongitude, "latitude": currentLatitude, "timestamp": currentTime, "createdAt": time, "zConformation": 0] as [String : Any]
-            print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-            print(child)
-            print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
             ref?.child("\(child)").childByAutoId().setValue(pinInfo)
         }
         self.navigationController?.popViewController(animated: true)
@@ -71,12 +68,5 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     
 }
