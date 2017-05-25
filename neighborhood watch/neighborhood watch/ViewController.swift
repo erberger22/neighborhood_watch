@@ -36,14 +36,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         self.mapView.showsUserLocation = true
     }
     
-    func checkPinStatus(inputTimestamp:TimeInterval) -> (Bool){
+    func checkPinStatus(inputTimestamp:TimeInterval, voteCount:Int) -> (Bool){
         let date1:Date = Date()
         let date2:Date = Date(timeIntervalSince1970: inputTimestamp)
         let calender:Calendar = Calendar.current
         let components: DateComponents = calender.dateComponents([.minute, .day, .hour], from: date2, to: date1)
-        print(components)
-        //if components.hour! >= 6
-        if (components.minute! >= 15 || components.day! >= 1 || components.hour! >= 1){
+        if (voteCount > 0 && components.day! >= 1){
+            return false
+        }
+        else if (voteCount == 0 && components.hour! >= 6){
+            return false
+        }
+        else if (voteCount < 0 && voteCount > -5 && components.minute! >= 30){
+            return false
+        }
+        else if(voteCount < -5 && voteCount > -10){
             return false
         }
         return true
@@ -78,9 +85,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                 let pinLongitude = array[4]
                 let pinLatitude = array[3]
                 let pinTimeStamp = array[5]
-                //let pinVote = array[6]
+                let pinVote = array[6]
                 let newPin = Location(title: items, locationName: pinDescription as! String, discipline: items, coordinate: CLLocationCoordinate2D(latitude: pinLatitude as! CLLocationDegrees, longitude: pinLongitude as! CLLocationDegrees), pinKey: pinIdInDatabase as! String)
-                if (self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval)){
+                if (self.checkPinStatus(inputTimestamp: pinTimeStamp as! TimeInterval, voteCount: pinVote as! Int )){
                     self.mapView.addAnnotation(newPin)
                 }
             }, withCancel: nil)
