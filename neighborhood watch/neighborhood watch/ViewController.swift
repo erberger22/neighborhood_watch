@@ -11,7 +11,6 @@ import MapKit
 import CoreLocation
 import Firebase
 
-
 class ViewController: UIViewController, CLLocationManagerDelegate{
 
     @IBOutlet var mapView: MKMapView!
