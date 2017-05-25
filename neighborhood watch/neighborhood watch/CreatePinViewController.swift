@@ -14,6 +14,8 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UISc
 
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var descriptionField: UITextView!
+    @IBOutlet weak var gradientView2: UIView!
+    var gradientLayer2: CAGradientLayer!
     var child = "Sanitation"
     
     func checkChild()
@@ -66,8 +68,22 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UISc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.UIScrollViewKeyboardDismissMode.onDrag
-        // Do any additional setup after loading the view.
+        pickerView.layer.cornerRadius = 8
+        descriptionField.layer.cornerRadius = 8
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        createGradientLayer2()
+    }
+    
+    func createGradientLayer2() {
+        gradientLayer2 = CAGradientLayer()
+        gradientLayer2.frame = self.gradientView2.bounds
+        let Chambray = UIColor(red: 115/255, green: 141/255, blue: 160/255, alpha:1.0)
+        let BlueWhale = UIColor(red: 41/255, green:51/255, blue: 76/255, alpha:1.0)
+        gradientLayer2.colors = [Chambray.cgColor, BlueWhale.cgColor]
+        
+        gradientView2.layer.addSublayer(gradientLayer2)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

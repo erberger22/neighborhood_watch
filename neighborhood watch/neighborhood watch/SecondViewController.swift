@@ -15,7 +15,9 @@ class SecondViewController: UIViewController {
         @IBOutlet var segmentControl: UISegmentedControl!
         @IBOutlet var passwordText: UITextField!
         @IBOutlet var actionButton: UIButton!
+        @IBOutlet weak var gradientView: UIView!
     
+        var gradientLayer: CAGradientLayer!
         private var _navigationController: UINavigationController?
         override var navigationController: UINavigationController? {
         get {
@@ -96,6 +98,8 @@ class SecondViewController: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            emailText.layer.cornerRadius = 8
+            passwordText.layer.cornerRadius = 8
             // Do any additional setup after loading the view, typically from a nib.
         }
         
@@ -104,12 +108,24 @@ class SecondViewController: UIViewController {
             // Dispose of any resources that can be recreated.
         }
     
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            createGradientLayer()
+         }
+    
+       func createGradientLayer() {
+            gradientLayer = CAGradientLayer()
+            gradientLayer.frame = self.gradientView.bounds
+            let Chambray = UIColor(red: 115/255, green: 141/255, blue: 160/255, alpha:1.0)
+            let BlueWhale = UIColor(red: 41/255, green:51/255, blue: 76/255, alpha:1.0)
+            gradientLayer.colors = [Chambray.cgColor, BlueWhale.cgColor]
+        
+            gradientView.layer.addSublayer(gradientLayer)
+         }
+    
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailText.resignFirstResponder()
         passwordText.resignFirstResponder()
         }
-
-        
-        
 }
 
