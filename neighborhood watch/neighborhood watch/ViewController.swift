@@ -103,6 +103,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     func handleLogout() {
 //        UserDefaults.standard.setNilValueForKey("firebaseUser")
+        UserDefaults.standard.set(nil, forKey: "firebaseUser")
+        if (UserDefaults.standard.value(forKey: "firebaseUser") != nil){
+            print("logged out")
+        }
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
         
         print("YAY WE LOGGED OUT!")
         self.navigationItem.setLeftBarButton(nil, animated: false)
