@@ -19,8 +19,6 @@ extension ViewController: MKMapViewDelegate {
                 view = MKAnnotationView()
                 view.annotation = annotation
                 view.image = annotation.image
-                
-                print("MIKE: annotation image \(annotation.image)")
                 // 3
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
@@ -30,9 +28,10 @@ extension ViewController: MKMapViewDelegate {
                 confirmButton.frame.size.height = 24
                 confirmButton.setTitle("Confirm", for: .normal)
                 confirmButton.setTitleColor(.blue, for: .normal)
-                view.leftCalloutAccessoryView = confirmButton
+                if (UserDefaults.standard.value(forKey: "isLoggedIn") as! Bool == true){
+                  view.leftCalloutAccessoryView = confirmButton
+                }
                 return view
-            
            }
         }
         return nil
@@ -45,7 +44,6 @@ extension ViewController: MKMapViewDelegate {
             location.mapItem().openInMaps(launchOptions: launchOptions)
         }
         if control == view.leftCalloutAccessoryView{
-            
             let location = view.annotation as! Location
             let pinKeyString = location.pinKey!
             let pinTitle = location.title!
@@ -74,7 +72,7 @@ extension ViewController: MKMapViewDelegate {
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
             var _ = self.ref.child(pinCategory).child(pinKey).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
-                print("Hello, World!")
+                //print("Hello, World!")
                 if let snapshot = snapshot.value as? [String: Any?] {
                     guard let count = snapshot["zConformation"] as? Int else { return }
                     self.ref.child(pinCategory).child(pinKey).updateChildValues(["zConformation": count - 1])
