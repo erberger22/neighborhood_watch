@@ -79,10 +79,9 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UISc
     func createGradientLayer2() {
         gradientLayer2 = CAGradientLayer()
         gradientLayer2.frame = self.gradientView2.bounds
-        let Chambray = UIColor(red: 115/255, green: 141/255, blue: 160/255, alpha:1.0)
-        let BlueWhale = UIColor(red: 41/255, green:51/255, blue: 76/255, alpha:1.0)
-        gradientLayer2.colors = [Chambray.cgColor, BlueWhale.cgColor]
-        
+        let firstColor = UIColor(red: 20/255, green: 105/255, blue: 155/255, alpha:1.0)
+        let secondColor = UIColor(red: 132/255, green: 146/255, blue: 155/255, alpha:1.0)
+        gradientLayer2.colors = [secondColor.cgColor, firstColor.cgColor]
         gradientView2.layer.addSublayer(gradientLayer2)
     }
     
