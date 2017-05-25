@@ -62,7 +62,7 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
             print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
             ref?.child("\(child)").childByAutoId().setValue(pinInfo)
         }
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
         
     }
     
