@@ -271,6 +271,7 @@
 				TargetAttributes = {
 					17CBE5E71ED0F889005F6940 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = K6VXB9NMUA;
 						ProvisioningStyle = Automatic;
 					};
 					17CBE5FB1ED0F889005F6940 = {
@@ -642,7 +643,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K6VXB9NMUA;
 				INFOPLIST_FILE = "neighborhood watch/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -660,7 +661,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K6VXB9NMUA;
 				INFOPLIST_FILE = "neighborhood watch/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
