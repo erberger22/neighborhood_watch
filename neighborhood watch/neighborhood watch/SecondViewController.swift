@@ -15,8 +15,16 @@ class SecondViewController: UIViewController {
         @IBOutlet var segmentControl: UISegmentedControl!
         @IBOutlet var passwordText: UITextField!
         @IBOutlet var actionButton: UIButton!
-        
-        
+    
+        private var _navigationController: UINavigationController?
+        override var navigationController: UINavigationController? {
+        get {
+            return _navigationController
+        } set {
+            _navigationController = newValue
+        }
+        }
+    
         @IBAction func action(_ sender: Any)
         {
             if emailText.text != "" && passwordText.text != ""
@@ -27,17 +35,13 @@ class SecondViewController: UIViewController {
                         if user != nil
                         {
                             //Log in Successful
-                            print("Success")
-                            
-                            UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                            UserDefaults.standard.synchronize()
-                            
-                            
-//                            if UserDefaults.standard.value(forKey: <#T##String#>) as Bool == true
-//                            self.performSegue(withIdentifier: "segue", sender: self)
-                            let mapVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC") as! ViewController
-                            self.navigationController?.pushViewController(mapVC, animated: true)
-
+                            UserDefaults.standard.set("\(user?.uid)", forKey: "firebaseUser")
+                            DispatchQueue.main.async {
+                                self.dismiss(animated: true, completion: {
+                                    let pinVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PinVC") as! CreatePinViewController
+                                    self._navigationController?.pushViewController(pinVC, animated: true)
+                                })
+                            }
                         }
                         else
                         {
@@ -63,11 +67,13 @@ class SecondViewController: UIViewController {
                         {
 //                            self.performSegue(withIdentifier: "segue", sender: self)
 
-                            let mapVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC") as! ViewController
-                            self.navigationController?.pushViewController(mapVC, animated: true)
-
-
-                            print("Success")
+                            UserDefaults.standard.set("\(user?.uid)", forKey: "firebaseUser")
+                            DispatchQueue.main.async {
+                                self.dismiss(animated: true, completion: {
+                                    let pinVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PinVC") as! CreatePinViewController
+                                    self._navigationController?.pushViewController(pinVC, animated: true)
+                                })
+                            }
                         }
                         else
                         {

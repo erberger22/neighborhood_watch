@@ -86,7 +86,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.handleLogout))
         
         
         self.showPin()
@@ -102,11 +102,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     func handleLogout() {
-        UserDefaults.standard.set(false, forKey: "isLoggedIn")
-        UserDefaults.standard.synchronize()
+//        UserDefaults.standard.setNilValueForKey("firebaseUser")
         
-//        let loginController = SecondViewController()
-//        present(loginController, animated: true, completion: nil)
+        print("YAY WE LOGGED OUT!")
+        self.navigationItem.setLeftBarButton(nil, animated: false)
+    }
+    
+    @IBAction func addPinTapped(_ sender: UIButton) {
+        moveToCreatePinVC()
+    }
+    
+    private func moveToCreatePinVC() {
+        if (UserDefaults.standard.value(forKey: "firebaseUser") != nil) {
+            let pinVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PinVC") as! CreatePinViewController
+            self.navigationController?.pushViewController(pinVC, animated: true)
+        } else {
+            let loginVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! SecondViewController
+            loginVC.navigationController = self.navigationController
+            self.present(loginVC, animated: true, completion: nil)
+        }
     }
     
 }

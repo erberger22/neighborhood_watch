@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GdR-IF-ed5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oMB-ZQ-tHm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="596" width="375" height="71"/>
                                 <state key="normal" title="Add Pin"/>
                                 <connections>
-                                    <segue destination="bEr-xO-9vZ" kind="modal" id="F77-oT-kjG"/>
+                                    <action selector="addPinTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fdK-i8-UA3"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HKa-em-Exm">
@@ -57,7 +57,7 @@
         <!--Create Pin View Controller-->
         <scene sceneID="YCh-HG-ZBh">
             <objects>
-                <viewController id="bEr-xO-9vZ" customClass="CreatePinViewController" customModule="neighborhood_watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PinVC" id="bEr-xO-9vZ" customClass="CreatePinViewController" customModule="neighborhood_watch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f2M-NW-BXq"/>
                         <viewControllerLayoutGuide type="bottom" id="9x9-xV-cDE"/>
@@ -139,7 +139,7 @@
         <!--UserAuth-->
         <scene sceneID="dbx-kR-eyA">
             <objects>
-                <viewController title="UserAuth" id="ttT-n8-7Ye" customClass="SecondViewController" customModule="neighborhood_watch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" title="UserAuth" id="ttT-n8-7Ye" customClass="SecondViewController" customModule="neighborhood_watch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E4z-u3-2NJ"/>
                         <viewControllerLayoutGuide type="bottom" id="dJq-W0-IWC"/>
@@ -190,7 +190,6 @@
                         <outlet property="emailText" destination="zyk-pa-iEs" id="49L-jI-9st"/>
                         <outlet property="passwordText" destination="bIy-Ii-QlH" id="u99-u3-N8W"/>
                         <outlet property="segmentControl" destination="KoJ-e9-SX1" id="HpK-ME-JCU"/>
-                        <segue destination="oMB-ZQ-tHm" kind="show" identifier="segue" id="BAa-Ju-JmB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uup-S5-s69" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,24 +213,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gm8-Fo-z18" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1664.8" y="-317.09145427286359"/>
-        </scene>
-        <!--Login Navigation Controller-->
-        <scene sceneID="hNj-7h-cio">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GdR-IF-ed5" customClass="LoginNavigationController" customModule="neighborhood_watch" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a1y-jf-ox1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ttT-n8-7Ye" kind="relationship" relationship="rootViewController" id="QAz-mt-ZE3"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DaR-E3-WWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2008.8" y="-1067.3163418290856"/>
         </scene>
     </scenes>
 </document>
