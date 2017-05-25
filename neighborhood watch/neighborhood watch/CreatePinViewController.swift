@@ -44,6 +44,7 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UISc
     }
     
     @IBAction func submitButton(_ sender: Any) {
+        descriptionField.resignFirstResponder()
         ref = Database.database().reference()
         let currentLatitude:CLLocationDegrees = manager.location!.coordinate.latitude
         let currentLongitude:CLLocationDegrees = manager.location!.coordinate.longitude
@@ -67,6 +68,10 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UISc
         super.viewDidLoad()
 //        self.UIScrollViewKeyboardDismissMode.onDrag
         // Do any additional setup after loading the view.
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        descriptionField.resignFirstResponder()
     }
     
 }
