@@ -95,6 +95,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
         self.showPin()
         ref = Database.database().reference()
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
@@ -107,7 +108,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     
     func handleLogout() {
-        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+//        UserDefaults.standard.set(false, forKey: "isLoggedIn")
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()

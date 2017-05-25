@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import CoreLocation
 
-class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIScrollViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var descriptionField: UITextView!
@@ -65,7 +65,7 @@ class CreatePinViewController: UIViewController, CLLocationManagerDelegate, UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        self.UIScrollViewKeyboardDismissMode.onDrag
         // Do any additional setup after loading the view.
     }
     
