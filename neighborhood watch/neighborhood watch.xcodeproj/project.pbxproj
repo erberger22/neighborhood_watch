@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1260B8B51ED60BB500862DE9 /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260B8B41ED60BB500862DE9 /* LoginNavigationController.swift */; };
 		12BE2C651ED3AF9F0029A83A /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BE2C641ED3AF9F0029A83A /* MainNavigationController.swift */; };
 		17CBE5EC1ED0F889005F6940 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE5EB1ED0F889005F6940 /* AppDelegate.swift */; };
 		17CBE5EE1ED0F889005F6940 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CBE5ED1ED0F889005F6940 /* ViewController.swift */; };
@@ -27,7 +26,6 @@
 		8B3B7BD238F8DC218F55E17B /* Pods_neighborhood_watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424C763B419712FCCEB6B32A /* Pods_neighborhood_watch.framework */; };
 		97F10FBE62841373ED77E226 /* Pods_neighborhood_watchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF1EFEFE807FA670B4D0F4A /* Pods_neighborhood_watchTests.framework */; };
 		C03173C41ED241F900467F2B /* CreatePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03173C31ED241F900467F2B /* CreatePinViewController.swift */; };
-		FC57E9A61ED4B08D0055B14E /* PoopAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57E9A51ED4B08D0055B14E /* PoopAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1260B8B41ED60BB500862DE9 /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
 		12BE2C641ED3AF9F0029A83A /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		17CBE5E81ED0F889005F6940 /* neighborhood watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "neighborhood watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CBE5EB1ED0F889005F6940 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +75,6 @@
 		DCF1EFEFE807FA670B4D0F4A /* Pods_neighborhood_watchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_neighborhood_watchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E119422C575A55E9B0F986A6 /* Pods-neighborhood watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neighborhood watch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-neighborhood watch/Pods-neighborhood watch.debug.xcconfig"; sourceTree = "<group>"; };
 		EEAD33D467BE291B43337D0D /* Pods-neighborhood watchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neighborhood watchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-neighborhood watchTests/Pods-neighborhood watchTests.release.xcconfig"; sourceTree = "<group>"; };
-		FC57E9A51ED4B08D0055B14E /* PoopAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoopAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,13 +138,11 @@
 				664999F91ED2140B002CBE72 /* VCMapView.swift */,
 				17CBE61F1ED128FB005F6940 /* SecondViewController.swift */,
 				C03173C31ED241F900467F2B /* CreatePinViewController.swift */,
-				FC57E9A51ED4B08D0055B14E /* PoopAnnotationView.swift */,
 				17CBE5EF1ED0F889005F6940 /* Main.storyboard */,
 				17CBE5F21ED0F889005F6940 /* Assets.xcassets */,
 				17CBE5F41ED0F889005F6940 /* LaunchScreen.storyboard */,
 				17CBE6191ED0F8EC005F6940 /* GoogleService-Info.plist */,
 				17CBE5F71ED0F889005F6940 /* Info.plist */,
-				1260B8B41ED60BB500862DE9 /* LoginNavigationController.swift */,
 			);
 			path = "neighborhood watch";
 			sourceTree = "<group>";
@@ -486,8 +480,6 @@
 				12BE2C651ED3AF9F0029A83A /* MainNavigationController.swift in Sources */,
 				664999F81ED21400002CBE72 /* Location.swift in Sources */,
 				17CBE5EC1ED0F889005F6940 /* AppDelegate.swift in Sources */,
-				1260B8B51ED60BB500862DE9 /* LoginNavigationController.swift in Sources */,
-				FC57E9A61ED4B08D0055B14E /* PoopAnnotationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
